@@ -9,6 +9,8 @@ import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
 import { validate } from 'src/common/utils/env-validation';
 import { CategoryModule } from './modules/category/category.module';
 import { SubcategoryModule } from './modules/subcategory/subcategory.module';
+import { StoreModule } from './modules/store/store.module';
+import { ProductModule } from './modules/product/product.module';
 
 @Module({
   imports: [
@@ -33,6 +35,8 @@ import { SubcategoryModule } from './modules/subcategory/subcategory.module';
     AuthModule,
     CategoryModule,
     SubcategoryModule,
+    StoreModule,
+    ProductModule,
   ],
   providers: [
     {

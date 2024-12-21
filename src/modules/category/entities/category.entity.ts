@@ -1,5 +1,6 @@
 import { Exclude } from 'class-transformer';
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Store } from 'src/modules/store/entities/store.entity';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany } from 'typeorm';
 
 @Entity()
 export class Category {
@@ -13,4 +14,7 @@ export class Category {
 
   @Column({ unique: true })
   name: string;
+
+  @ManyToMany(() => Store, (store) => store.categories)
+  stores: Store[];
 }
