@@ -7,6 +7,8 @@ import { UserModule } from 'src/modules/user/user.module';
 import { AuthModule } from 'src/modules/auth/auth.module';
 import { JwtAuthGuard } from 'src/common/guards/jwt-auth.guard';
 import { validate } from 'src/common/utils/env-validation';
+import { CategoryModule } from './modules/category/category.module';
+import { SubcategoryModule } from './modules/subcategory/subcategory.module';
 
 @Module({
   imports: [
@@ -23,10 +25,14 @@ import { validate } from 'src/common/utils/env-validation';
         database: configService.get<string>('POSTGRES_DB'),
         synchronize: true,
         autoLoadEntities: true,
+        // migrationsTableName: 'migrations',
+        // migrations: ['migrations/*.ts'],
       }),
     }),
     UserModule,
     AuthModule,
+    CategoryModule,
+    SubcategoryModule,
   ],
   providers: [
     {
